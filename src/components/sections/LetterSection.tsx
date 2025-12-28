@@ -1,69 +1,114 @@
-import { Heart, PenLine } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Target, Sparkles } from "lucide-react";
 
 const LetterSection = () => {
+  const wishes = [
+    { text: "Learn something new", done: false },
+    { text: "Take more photos", done: true },
+    { text: "Read 12 books this year", done: false },
+    { text: "Try a new recipe", done: true },
+    { text: "Start a journal", done: false },
+    { text: "Have more adventures", done: false },
+  ];
+
+  const quickLinks = [
+    { emoji: "📝", label: "Notes", color: "bg-yellow-500/20" },
+    { emoji: "🎵", label: "Playlist", color: "bg-purple-500/20" },
+    { emoji: "📸", label: "Gallery", color: "bg-pink-500/20" },
+    { emoji: "✨", label: "Wishlist", color: "bg-blue-500/20" },
+  ];
+
   return (
-    <section id="letter" className="py-24 bg-background relative">
+    <section id="goals" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            From My Heart
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-foreground">
-            A Love Letter
+        <div className="text-center mb-12">
+          <span className="text-4xl mb-4 block">🎯</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Dreams & Goals
           </h2>
+          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+            Little things you want to do
+          </p>
         </div>
 
-        <Card className="max-w-3xl mx-auto bg-card border-border shadow-romantic overflow-hidden">
-          <div className="h-2 bg-gradient-romantic" />
-          <CardContent className="p-8 md:p-12">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center">
-                <PenLine className="w-6 h-6 text-primary" />
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          {/* Wishlist */}
+          <Card className="bg-card/80 backdrop-blur border-border/50">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <Target className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-semibold text-foreground">
+                  2024 Wishlist
+                </h3>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Written with love</p>
-                <p className="font-display text-lg font-semibold text-foreground">For You, Always</p>
+              <ul className="space-y-3">
+                {wishes.map((wish, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div
+                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                        wish.done
+                          ? "bg-primary border-primary"
+                          : "border-muted-foreground/30"
+                      }`}
+                    >
+                      {wish.done && (
+                        <span className="text-primary-foreground text-xs">
+                          ✓
+                        </span>
+                      )}
+                    </div>
+                    <span
+                      className={`${
+                        wish.done
+                          ? "text-muted-foreground line-through"
+                          : "text-foreground"
+                      }`}
+                    >
+                      {wish.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Quick Links */}
+          <Card className="bg-card/80 backdrop-blur border-border/50">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <Sparkles className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-semibold text-foreground">
+                  Quick Links
+                </h3>
               </div>
-            </div>
-
-            <div className="space-y-6 text-foreground leading-relaxed font-body">
-              <p className="first-letter:text-5xl first-letter:font-display first-letter:text-primary first-letter:float-left first-letter:mr-3 first-letter:mt-1">
-                My dearest, words cannot fully express the depth of what I feel for you, 
-                but I'll try my best to put it into words.
-              </p>
-
-              <p>
-                From the moment you came into my life, everything changed. The colors 
-                became brighter, the music became sweeter, and every day became an 
-                adventure worth waking up for.
-              </p>
-
-              <p>
-                You are my sunshine on cloudy days, my calm in the storm, and my 
-                reason to smile. Your presence in my life is the greatest gift I've 
-                ever received, and I treasure every single moment we share together.
-              </p>
-
-              <p>
-                Thank you for being you. Thank you for loving me. Thank you for 
-                making my life infinitely more beautiful just by existing.
-              </p>
-
-              <p className="font-display text-xl text-primary italic">
-                Forever and always yours,
-              </p>
-
-              <div className="flex items-center gap-2 pt-4">
-                <Heart className="w-6 h-6 text-primary fill-primary animate-pulse-soft" />
-                <span className="font-display text-2xl text-gradient font-semibold">
-                  With All My Love
-                </span>
-                <Heart className="w-6 h-6 text-primary fill-primary animate-pulse-soft" />
+              <div className="grid grid-cols-2 gap-4">
+                {quickLinks.map((link, index) => (
+                  <button
+                    key={index}
+                    className={`${link.color} p-6 rounded-2xl hover:scale-105 transition-all flex flex-col items-center gap-2`}
+                  >
+                    <span className="text-3xl">{link.emoji}</span>
+                    <span className="text-foreground font-medium">
+                      {link.label}
+                    </span>
+                  </button>
+                ))}
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Fun Note */}
+        <div className="max-w-2xl mx-auto mt-12">
+          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+            <CardContent className="p-8 text-center">
+              <p className="text-2xl mb-2">🌸</p>
+              <p className="text-foreground text-lg font-display">
+                "You're exactly where you need to be. Keep going, cutie!"
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );

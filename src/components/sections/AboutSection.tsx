@@ -1,65 +1,74 @@
-import { Star, Heart, Smile, Music } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
-
-const traits = [
-  {
-    icon: Star,
-    title: "Your Smile",
-    description: "The way your eyes light up when you smile makes everything feel magical.",
-  },
-  {
-    icon: Heart,
-    title: "Your Kindness",
-    description: "The gentle way you care for everyone around you inspires me every day.",
-  },
-  {
-    icon: Smile,
-    title: "Your Laugh",
-    description: "Your laughter is my favorite sound in the entire world.",
-  },
-  {
-    icon: Music,
-    title: "Your Spirit",
-    description: "Your free spirit and zest for life make every adventure worthwhile.",
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { Palette, Music, Coffee, Camera, Book, Sparkles } from "lucide-react";
 
 const AboutSection = () => {
+  const vibes = [
+    {
+      icon: Palette,
+      title: "Creative Soul",
+      description: "Always dreaming up beautiful things",
+      color: "text-pink-400",
+    },
+    {
+      icon: Music,
+      title: "Music Lover",
+      description: "Vibing to the perfect playlist",
+      color: "text-purple-400",
+    },
+    {
+      icon: Coffee,
+      title: "Cozy Moments",
+      description: "Warm drinks & soft blankets",
+      color: "text-amber-400",
+    },
+    {
+      icon: Camera,
+      title: "Memory Keeper",
+      description: "Capturing the little moments",
+      color: "text-rose-400",
+    },
+    {
+      icon: Book,
+      title: "Daydreamer",
+      description: "Lost in wonderful stories",
+      color: "text-indigo-400",
+    },
+    {
+      icon: Sparkles,
+      title: "Magic Maker",
+      description: "Finding joy everywhere",
+      color: "text-yellow-400",
+    },
+  ];
+
   return (
-    <section
-      id="about"
-      className="py-24 bg-gradient-soft relative"
-    >
+    <section id="vibes" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            About Her
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-foreground">
-            What Makes You Special
+        <div className="text-center mb-12">
+          <span className="text-4xl mb-4 block">🌟</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Your Vibes
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            There are countless reasons why you&apos;re amazing, but here are just a few
-            of the things I adore about you.
+          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+            All the little things that make you, you
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {traits.map((trait, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {vibes.map((vibe, index) => (
             <Card
-              key={trait.title}
-              className="group bg-card border-border hover:border-primary/30 shadow-card hover:shadow-romantic transition-all duration-300 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 100}ms` }}
+              key={index}
+              className="group hover:scale-105 transition-all duration-300 bg-card/80 backdrop-blur border-border/50 hover:shadow-xl hover:shadow-primary/10"
             >
               <CardContent className="p-6 text-center">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-rose-light flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                  <trait.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary/50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <vibe.icon className={`w-8 h-8 ${vibe.color}`} />
                 </div>
-                <h3 className="font-display text-xl font-semibold mb-2 text-foreground">
-                  {trait.title}
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  {vibe.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {trait.description}
+                <p className="text-muted-foreground text-sm">
+                  {vibe.description}
                 </p>
               </CardContent>
             </Card>

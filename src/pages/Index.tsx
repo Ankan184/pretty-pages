@@ -26,7 +26,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "memories", "reasons", "letter"];
+      const sections = ["home", "vibes", "favorites", "affirmations", "goals"];
       const navHeight = 64;
       
       for (const sectionId of sections) {
