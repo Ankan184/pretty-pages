@@ -1,21 +1,12 @@
-import { Heart } from "lucide-react";
-
 const Footer = () => {
   return (
-    <footer className="py-12 bg-gradient-soft border-t border-border">
+    <footer className="py-8 bg-secondary/30 border-t border-border/50">
       <div className="container mx-auto px-4 text-center">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Heart className="w-5 h-5 text-primary fill-primary animate-pulse-soft" />
-          <span className="font-display text-xl font-semibold text-foreground">
-            Made with Love
-          </span>
-          <Heart className="w-5 h-5 text-primary fill-primary animate-pulse-soft" />
-        </div>
         <p className="text-muted-foreground text-sm">
-          Every pixel of this website was crafted with you in mind.
+          Made with 💖 just for you
         </p>
-        <p className="text-muted-foreground text-xs mt-4">
-          Forever yours • Always and forever
+        <p className="text-muted-foreground/60 text-xs mt-2">
+          Your little corner of the internet ✨
         </p>
       </div>
     </footer>

@@ -1,55 +1,75 @@
-import { Heart } from "lucide-react";
-
-const reasons = [
-  "The way you make me feel like the luckiest person alive",
-  "Your infectious laughter that brightens any room",
-  "How you always know the right thing to say",
-  "The way you believe in me, even when I don't",
-  "Your beautiful heart that cares so deeply",
-  "The adventures we share, big and small",
-  "How you make ordinary moments extraordinary",
-  "Your strength that inspires me every day",
-  "The comfort I feel just being near you",
-  "Simply because you're you, and that's everything",
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { Quote } from "lucide-react";
 
 const ReasonsSection = () => {
-  return (
-    <section id="reasons" className="py-24 bg-gradient-soft relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-rose-light rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-light rounded-full blur-3xl opacity-20 translate-x-1/2 translate-y-1/2" />
+  const affirmations = [
+    "You're doing amazing, even when it doesn't feel like it ✨",
+    "Your energy is magnetic and people love being around you 🌸",
+    "It's okay to rest. You deserve soft days too 🧸",
+    "You bring so much light wherever you go ☀️",
+    "Your feelings are valid, always 💝",
+    "You're stronger than you think, braver than you believe 🦋",
+  ];
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            10 Reasons
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-foreground">
-            Why I Love You
+  const todaysMood = [
+    { emoji: "😊", label: "Happy" },
+    { emoji: "😴", label: "Sleepy" },
+    { emoji: "🥰", label: "Loved" },
+    { emoji: "😌", label: "Peaceful" },
+    { emoji: "🤗", label: "Cozy" },
+    { emoji: "✨", label: "Sparkly" },
+  ];
+
+  return (
+    <section id="affirmations" className="py-20 bg-secondary/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="text-4xl mb-4 block">🌷</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Daily Reminders
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            There are infinite reasons, but here are just a few that make my heart overflow.
+          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+            Little notes to brighten your day
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <div className="grid gap-4">
-            {reasons.map((reason, index) => (
-              <div
-                key={index}
-                className="group flex items-start gap-4 p-4 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 hover:bg-card transition-all duration-300 hover:shadow-card"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-rose-light flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                  <Heart className="w-5 h-5 text-primary fill-primary group-hover:text-primary-foreground group-hover:fill-primary-foreground transition-colors duration-300" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-xs text-primary font-semibold">Reason #{index + 1}</span>
-                  <p className="text-foreground font-medium mt-1">{reason}</p>
-                </div>
+        {/* Affirmations */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16">
+          {affirmations.map((affirmation, index) => (
+            <Card
+              key={index}
+              className="bg-card/60 backdrop-blur border-border/50 hover:bg-card transition-all"
+            >
+              <CardContent className="p-6 flex items-start gap-4">
+                <Quote className="w-6 h-6 text-primary shrink-0 mt-1" />
+                <p className="text-foreground text-lg">{affirmation}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Mood Tracker */}
+        <div className="max-w-2xl mx-auto">
+          <Card className="bg-card/80 backdrop-blur border-border/50">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-display font-semibold text-foreground mb-6 text-center">
+                How are you feeling today? 💭
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {todaysMood.map((mood, index) => (
+                  <button
+                    key={index}
+                    className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-secondary/50 hover:bg-primary/20 transition-all hover:scale-110 min-w-[80px]"
+                  >
+                    <span className="text-3xl">{mood.emoji}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {mood.label}
+                    </span>
+                  </button>
+                ))}
               </div>
-            ))}
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

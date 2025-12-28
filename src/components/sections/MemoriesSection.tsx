@@ -1,81 +1,72 @@
-import { Camera, MapPin, Calendar } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
-
-const memories = [
-  {
-    title: "Our First Meeting",
-    date: "A Day to Remember",
-    location: "Where it all began",
-    description: "The moment I saw you, I knew my life would never be the same.",
-    color: "from-primary/20 to-rose-light",
-  },
-  {
-    title: "Late Night Talks",
-    date: "Every Night",
-    location: "Under the stars",
-    description: "Those endless conversations where time seemed to stand still.",
-    color: "from-gold-light/30 to-cream",
-  },
-  {
-    title: "Adventures Together",
-    date: "Always",
-    location: "Everywhere with you",
-    description: "Every journey is better because you're by my side.",
-    color: "from-accent/20 to-blush",
-  },
-  {
-    title: "Quiet Moments",
-    date: "Precious Times",
-    location: "In your arms",
-    description: "Sometimes the best memories are made in comfortable silence.",
-    color: "from-secondary to-rose-light/50",
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
 
 const MemoriesSection = () => {
+  const favorites = [
+    {
+      emoji: "🎵",
+      category: "Current Jam",
+      item: "Your favorite song goes here",
+      bg: "from-pink-500/20 to-purple-500/20",
+    },
+    {
+      emoji: "🍵",
+      category: "Go-to Drink",
+      item: "Matcha latte with oat milk",
+      bg: "from-green-500/20 to-emerald-500/20",
+    },
+    {
+      emoji: "🎬",
+      category: "Comfort Show",
+      item: "That show you rewatch",
+      bg: "from-blue-500/20 to-indigo-500/20",
+    },
+    {
+      emoji: "🌸",
+      category: "Favorite Season",
+      item: "Spring vibes forever",
+      bg: "from-rose-500/20 to-pink-500/20",
+    },
+    {
+      emoji: "📚",
+      category: "Reading Now",
+      item: "A cozy book title",
+      bg: "from-amber-500/20 to-orange-500/20",
+    },
+    {
+      emoji: "🍰",
+      category: "Sweet Treat",
+      item: "Strawberry anything",
+      bg: "from-red-500/20 to-rose-500/20",
+    },
+  ];
+
   return (
-    <section id="memories" className="py-24 bg-background relative">
+    <section id="favorites" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            Memories
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-foreground">
-            Our Beautiful Moments
+        <div className="text-center mb-12">
+          <span className="text-4xl mb-4 block">💖</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Favorite Things
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Every moment spent with you becomes a cherished memory I hold close to my heart.
+          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+            A collection of things that bring you joy
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {memories.map((memory, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {favorites.map((fav, index) => (
             <Card
-              key={memory.title}
-              className={`group overflow-hidden border-border hover:border-primary/30 shadow-card hover:shadow-romantic transition-all duration-500 hover:-translate-y-1`}
+              key={index}
+              className="overflow-hidden hover:scale-105 transition-all duration-300 border-border/50 hover:shadow-xl"
             >
-              <CardContent className="p-0">
-                <div className={`h-32 bg-gradient-to-br ${memory.color} flex items-center justify-center`}>
-                  <Camera className="w-12 h-12 text-primary/40" />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-                    {memory.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {memory.description}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4 text-primary" />
-                      {memory.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      {memory.location}
-                    </span>
-                  </div>
-                </div>
+              <CardContent className={`p-6 bg-gradient-to-br ${fav.bg}`}>
+                <span className="text-4xl mb-4 block">{fav.emoji}</span>
+                <p className="text-sm text-muted-foreground uppercase tracking-wide mb-1">
+                  {fav.category}
+                </p>
+                <h3 className="text-xl font-semibold text-foreground">
+                  {fav.item}
+                </h3>
               </CardContent>
             </Card>
           ))}

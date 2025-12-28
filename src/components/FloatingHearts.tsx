@@ -1,31 +1,37 @@
-import { Heart } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const FloatingHearts = () => {
-  const hearts = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 16 + 12,
-    left: Math.random() * 100,
-    delay: Math.random() * 5,
-    duration: Math.random() * 3 + 3,
-    opacity: Math.random() * 0.3 + 0.1,
-  }));
+  const [elements, setElements] = useState<
+    Array<{ id: number; left: number; delay: number; duration: number; emoji: string }>
+  >([]);
+
+  const emojis = ["✨", "🌸", "💫", "🦋", "⭐", "🌷", "💖", "🧸"];
+
+  useEffect(() => {
+    const newElements = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 5,
+      duration: 8 + Math.random() * 6,
+      emoji: emojis[Math.floor(Math.random() * emojis.length)],
+    }));
+    setElements(newElements);
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {hearts.map((heart) => (
-        <Heart
-          key={heart.id}
-          className="absolute text-primary fill-primary"
+      {elements.map((element) => (
+        <div
+          key={element.id}
+          className="absolute text-xl opacity-40"
           style={{
-            width: heart.size,
-            height: heart.size,
-            left: `${heart.left}%`,
-            top: `${Math.random() * 100}%`,
-            opacity: heart.opacity,
-            animation: `float ${heart.duration}s ease-in-out infinite`,
-            animationDelay: `${heart.delay}s`,
+            left: `${element.left}%`,
+            animation: `float ${element.duration}s ease-in-out infinite`,
+            animationDelay: `${element.delay}s`,
           }}
-        />
+        >
+          {element.emoji}
+        </div>
       ))}
     </div>
   );

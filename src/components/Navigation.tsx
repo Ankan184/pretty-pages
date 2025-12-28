@@ -1,52 +1,63 @@
-import { Heart } from "lucide-react";
-import { Button } from "./ui/button";
+import { Sparkles } from "lucide-react";
 
 interface NavigationProps {
   activeSection: string;
-  onNavigate: (section: string) => void;
+  onNavigate: (sectionId: string) => void;
 }
 
-const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About Her" },
-  { id: "memories", label: "Memories" },
-  { id: "reasons", label: "Why I Love You" },
-  { id: "letter", label: "Love Letter" },
-];
-
 const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
+  const navItems = [
+    { id: "home", label: "Home", emoji: "🏠" },
+    { id: "vibes", label: "Vibes", emoji: "🌟" },
+    { id: "favorites", label: "Favorites", emoji: "💖" },
+    { id: "affirmations", label: "Reminders", emoji: "🌷" },
+    { id: "goals", label: "Goals", emoji: "🎯" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <button 
+          <button
             onClick={() => onNavigate("home")}
-            className="flex items-center gap-2 text-primary hover:scale-105 transition-transform"
+            className="flex items-center gap-2 text-xl font-display font-bold text-foreground hover:text-primary transition-colors"
           >
-            <Heart className="w-6 h-6 fill-primary animate-pulse-soft" />
-            <span className="font-display text-xl font-semibold">For You</span>
+            <Sparkles className="w-5 h-5 text-primary" />
+            <span>Her Dashboard</span>
           </button>
 
-          {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
-              <Button
+              <button
                 key={item.id}
-                variant={activeSection === item.id ? "navActive" : "nav"}
-                size="sm"
                 onClick={() => onNavigate(item.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeSection === item.id
+                    ? "bg-primary/20 text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
               >
+                <span className="mr-1">{item.emoji}</span>
                 {item.label}
-              </Button>
+              </button>
             ))}
           </div>
 
-          {/* Mobile Menu */}
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Heart className="w-5 h-5" />
-            </Button>
+          {/* Mobile nav */}
+          <div className="flex md:hidden items-center gap-2">
+            {navItems.slice(0, 4).map((item) => (
+              <button
+                key={item.id}
+                onClick={() => onNavigate(item.id)}
+                className={`p-2 rounded-full transition-all ${
+                  activeSection === item.id
+                    ? "bg-primary/20 text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <span className="text-lg">{item.emoji}</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
