@@ -1,4 +1,4 @@
-import { Camera, Instagram, Twitter, Youtube, Music, Sparkles } from "lucide-react";
+import { Camera, Instagram, Youtube, Music, Sparkles, Ghost } from "lucide-react";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -96,10 +96,10 @@ const ProfileSection = () => {
             
             <a 
               href="#" 
-              className="group flex flex-col items-center p-6 bg-gradient-to-br from-blue-400/10 to-blue-600/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
+              className="group flex flex-col items-center p-6 bg-gradient-to-br from-yellow-400/10 to-yellow-500/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
-              <Twitter className="w-8 h-8 text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium text-foreground">Twitter</span>
+              <Ghost className="w-8 h-8 text-yellow-500 mb-2 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-foreground">Snapchat</span>
               <span className="text-xs text-muted-foreground">@srishti</span>
             </a>
             
