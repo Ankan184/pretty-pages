@@ -8,6 +8,7 @@ interface NavigationProps {
 const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   const navItems = [
     { id: "home", label: "Home", emoji: "🏠" },
+    { id: "profile", label: "Srishti", emoji: "👩‍💕" },
     { id: "vibes", label: "Vibes", emoji: "🌟" },
     { id: "favorites", label: "Favorites", emoji: "💖" },
     { id: "affirmations", label: "Reminders", emoji: "🌷" },
@@ -23,7 +24,7 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
             className="flex items-center gap-2 text-xl font-display font-bold text-foreground hover:text-primary transition-colors"
           >
             <Sparkles className="w-5 h-5 text-primary" />
-            <span>Her Dashboard</span>
+            <span>Srishti's Space</span>
           </button>
 
           <div className="hidden md:flex items-center gap-1">
@@ -45,7 +46,7 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
 
           {/* Mobile nav */}
           <div className="flex md:hidden items-center gap-2">
-            {navItems.slice(0, 4).map((item) => (
+            {navItems.slice(0, 5).map((item) => (
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}

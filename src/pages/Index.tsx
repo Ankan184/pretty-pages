@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import FloatingHearts from "@/components/FloatingHearts";
 import HeroSection from "@/components/sections/HeroSection";
+import ProfileSection from "@/components/sections/ProfileSection";
 import AboutSection from "@/components/sections/AboutSection";
 import MemoriesSection from "@/components/sections/MemoriesSection";
 import ReasonsSection from "@/components/sections/ReasonsSection";
@@ -26,7 +27,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "vibes", "favorites", "affirmations", "goals"];
+      const sections = ["home", "profile", "vibes", "favorites", "affirmations", "goals"];
       const navHeight = 64;
       
       for (const sectionId of sections) {
@@ -52,6 +53,7 @@ const Index = () => {
       
       <main className="pt-16">
         <HeroSection onNavigate={handleNavigate} />
+        <ProfileSection />
         <AboutSection />
         <MemoriesSection />
         <ReasonsSection />
