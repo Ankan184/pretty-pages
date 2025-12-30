@@ -26,7 +26,7 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground mb-4">
-            Hey, <span className="text-primary">Cutie</span>! ✨
+            Hey, <span className="text-primary">Srishti</span>! ✨
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-light">
