@@ -86,7 +86,8 @@ const ProfileSection = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <a 
-              href="https://www.instagram.com/sryix.ix/?hl=en" 
+               href="https://www.instagram.com/sryix.ix/"
+                target="_blank" 
               className="group flex flex-col items-center p-6 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
               <Instagram className="w-8 h-8 text-pink-500 mb-2 group-hover:scale-110 transition-transform" />
