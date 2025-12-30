@@ -12,7 +12,6 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
     { id: "vibes", label: "Vibes", emoji: "🌟" },
     { id: "favorites", label: "Favorites", emoji: "💖" },
     { id: "affirmations", label: "Reminders", emoji: "🌷" },
-    { id: "goals", label: "Goals", emoji: "🎯" },
   ];
 
   return (

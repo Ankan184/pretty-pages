@@ -6,7 +6,6 @@ import ProfileSection from "@/components/sections/ProfileSection";
 import AboutSection from "@/components/sections/AboutSection";
 import MemoriesSection from "@/components/sections/MemoriesSection";
 import ReasonsSection from "@/components/sections/ReasonsSection";
-import LetterSection from "@/components/sections/LetterSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -27,7 +26,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "profile", "vibes", "favorites", "affirmations", "goals"];
+      const sections = ["home", "profile", "vibes", "favorites", "affirmations"];
       const navHeight = 64;
       
       for (const sectionId of sections) {
@@ -57,7 +56,6 @@ const Index = () => {
         <AboutSection />
         <MemoriesSection />
         <ReasonsSection />
-        <LetterSection />
       </main>
       
       <Footer />
