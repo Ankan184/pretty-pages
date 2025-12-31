@@ -96,7 +96,8 @@ const ProfileSection = () => {
             </a>
             
             <a 
-              href="#" 
+              href="https://www.snapchat.com/@sistysingh22?share_id=B4ziE3ZbTww&locale=en-GB" 
+              target="_blank"
               className="group flex flex-col items-center p-6 bg-gradient-to-br from-yellow-400/10 to-yellow-500/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
               <Ghost className="w-8 h-8 text-yellow-500 mb-2 group-hover:scale-110 transition-transform" />
@@ -114,7 +115,8 @@ const ProfileSection = () => {
             </a>
             
             <a 
-              href="#" 
+              href="https://open.spotify.com/user/31eqapk4ti56ma4laekpwkmgmdty?si=IQMzbIAFRzaAGEV-FcIipw&nd=1&dlsi=ddb9dc75b7d64c59"
+              target="_blank"
               className="group flex flex-col items-center p-6 bg-gradient-to-br from-green-400/10 to-green-600/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
               <Music className="w-8 h-8 text-green-500 mb-2 group-hover:scale-110 transition-transform" />
