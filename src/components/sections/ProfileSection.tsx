@@ -86,7 +86,7 @@ const ProfileSection = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <a 
-               href="https://www.instagram.com/sryix.ix/"
+               href=""
                 target="_blank" 
               className="group flex flex-col items-center p-6 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
@@ -96,7 +96,7 @@ const ProfileSection = () => {
             </a>
             
             <a 
-              href="https://www.snapchat.com/@sistysingh22?share_id=B4ziE3ZbTww&locale=en-GB" 
+              href="" 
               target="_blank"
               className="group flex flex-col items-center p-6 bg-gradient-to-br from-yellow-400/10 to-yellow-500/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
@@ -115,7 +115,7 @@ const ProfileSection = () => {
             </a>
             
             <a 
-              href="https://open.spotify.com/user/31eqapk4ti56ma4laekpwkmgmdty?si=IQMzbIAFRzaAGEV-FcIipw&nd=1&dlsi=ddb9dc75b7d64c59"
+              href=""
               target="_blank"
               className="group flex flex-col items-center p-6 bg-gradient-to-br from-green-400/10 to-green-600/10 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all hover:scale-105"
             >
